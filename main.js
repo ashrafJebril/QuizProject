@@ -80,76 +80,92 @@ $(document).ready(function() {
   };
   var score = 0;
   var i = 0;
+  var isAnswerd = false;
+  $("#question").text(i + 1);
+  $("#questionsRemaining").text(questions.length - i - 1);
+  var question = questions[i];
   $(".bounce").click(function() {
     $(".bounce").remove();
     $(".box").show();
 
-    $(".paragrapQestion").text(questions[0]);
-    answers[questions[0]].forEach(function(element, index) {
-      $(".box").append(
-        "<button class='button' id=" + index + ">" + element + "</button>"
-      );
-      $(".button").click(answerButtonsClicked);
+    $(".paragrapQestion").text(question);
+    answers[question].forEach(function(element, index) {
+      var btn =
+        "<button class='button' id=" + index + ">" + element + "</button>";
+      var id = "#" + index;
+
+      $(".answers").append(btn);
+      $(id).click(answerButtonsClicked);
     });
     $(".box").append("<button class='btnNext'>Next</button>");
     $(".btnNext").click(nextButtonClicked);
   });
   function nextButtonClicked() {
     //Process next button click event
-
-    if (i !== questions.length) {
-      var question = questions[i];
-      $(".paragrapQestion").text(question);
-      //$('.').html('')
-      answers[question].forEach(function(element, index) {
-        $(".box").append(
-          "<button class='button' id=" + index + ">" + element + "</button>"
-        );
-        $(".button").click(answerButtonsClicked);
-      });
+    //
+    if (isAnswerd) {
+      isAnswerd = !isAnswerd;
+      i++;
+      $("#question").text(i + 1);
+      $("#questionsRemaining").text(questions.length - i - 1);
+      if (i !== questions.length) {
+        question = questions[i];
+        $(".paragrapQestion").text(question);
+        $(".answers").html("");
+        answers[question].forEach(function(element, index) {
+          var btn =
+            "<button class='button' id=" + index + ">" + element + "</button>";
+          var id = "#" + index;
+          $(".answers").append(btn);
+          $(id).click(answerButtonsClicked);
+        });
+      } else {
+        $(".box").html("");
+        alert(score);
+      }
     } else {
-      alert(score);
+      alert("Please select answer!");
     }
   }
+
   function answerButtonsClicked() {
-    $(this).css("background-color", "#3e8e41");
-    //Process answer button click event
-
-    if (corectAnswers[question] === answers[question][this.id]) {
-      score++;
+    if (!isAnswerd) {
+      $(this).css("background-color", "#3e8e41");
+      if (corectAnswers[question] === answers[question][this.id]) {
+        score++;
+      }
+      isAnswerd = !isAnswerd;
     }
-    i++;
   }
+  var timeInMinutes = 5;
+  var currentTime = Date.parse(new Date());
+  var deadLine = new Date(currentTime + timeInMinutes * 60 * 1000);
+
+  function timeRemaining(endtime) {
+    var t = Date.parse(endtime) - Date.parse(new Date());
+    var seconds = Math.floor((t / 1000) % 60);
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return {
+      total: t,
+      days: days,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds
+    };
+  }
+  function runClock(id, endtime) {
+    var clock = document.getElementById(id);
+    function updateClock() {
+      var t = timeRemaining(endtime);
+      clock.innerHTML = t.minutes + ": " + t.seconds;
+      if (t.total <= 0) {
+        clearInterval(timeInterval);
+      }
+    }
+    updateClock(); // run function once at first to avoid delay
+    var timeInterval = setInterval(updateClock, 1000);
+  }
+  runClock("lbl0", deadLine);
 });
-
-// var timeInMinutes = 5;
-// var currentTime = Date.parse(new Date());
-// var deadLine = new Date(currentTime + timeInMinutes * 60 * 1000);
-
-// function timeRemaining(endtime) {
-//   var t = Date.parse(endtime) - Date.parse(new Date());
-//   var seconds = Math.floor((t / 1000) % 60);
-//   var minutes = Math.floor((t / 1000 / 60) % 60);
-//   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-//   var days = Math.floor(t / (1000 * 60 * 60 * 24));
-//   return {
-//     total: t,
-//     days: days,
-//     hours: hours,
-//     minutes: minutes,
-//     seconds: seconds
-//   };
-// }
-// function runClock(id, endtime) {
-//   var clock = document.getElementById(id);
-//   function updateClock() {
-//     var t = timeRemaining(endtime);
-//     clock.innerHTML = t.minutes + ": " + t.seconds;
-//     if (t.total <= 0) {
-//       clearInterval(timeInterval);
-//     }
-//   }
-//   updateClock(); // run function once at first to avoid delay
-//   var timeInterval = setInterval(updateClock, 1000);
-// }
-// runClock("lbl0", deadLine);
