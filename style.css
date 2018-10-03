@@ -71,12 +71,9 @@
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
-
   margin: auto;
   display: block;
-
   margin-top: 15px;
-
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.79);
   border-radius: 15px;
 }

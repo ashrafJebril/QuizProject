@@ -103,9 +103,14 @@ $(document).ready(function() {
   function nextButtonClicked() {
     //Process next button click event
     //
+
     if (isAnswerd) {
       isAnswerd = !isAnswerd;
       i++;
+      if (i === questions.length - 1) {
+        console.log("Hi");
+        $(".btnNext").text("Finish");
+      }
       $("#question").text(i + 1);
       $("#questionsRemaining").text(questions.length - i - 1);
       if (i !== questions.length) {
@@ -121,7 +126,8 @@ $(document).ready(function() {
         });
       } else {
         $(".box").html("");
-        alert(score);
+        //TODO: style this in the
+        $(".box").append("Your Score is " + score);
       }
     } else {
       alert("Please select answer!");
@@ -137,7 +143,7 @@ $(document).ready(function() {
       isAnswerd = !isAnswerd;
     }
   }
-  var timeInMinutes = 5;
+  var timeInMinutes = 4;
   var currentTime = Date.parse(new Date());
   var deadLine = new Date(currentTime + timeInMinutes * 60 * 1000);
 
@@ -161,10 +167,11 @@ $(document).ready(function() {
       var t = timeRemaining(endtime);
       clock.innerHTML = t.minutes + ": " + t.seconds;
       if (t.total <= 0) {
+        alert("Time's Up Game Over");
         clearInterval(timeInterval);
       }
     }
-    updateClock(); // run function once at first to avoid delay
+    updateClock();
     var timeInterval = setInterval(updateClock, 1000);
   }
   runClock("lbl0", deadLine);
