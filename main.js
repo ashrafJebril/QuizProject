@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     var questions = ['Who was the first president of the USA?', 'How many oscars did the Titanic movie got?','question3','question4','question5','question6','question7','question8','question9','question10']
     var answers = {
@@ -29,13 +30,15 @@ $('.paragrapQestion').text(questions[0])
             answers[questions[0]].forEach(function(element, index) {
 
         $('.box').append( "<button class='button' id="+ index + ">" + element + "</button>" );
-
+        $('.button').click(this.answerButtonsClicked);
     })
             $('.box').append( "<button class='btnNext'>Next</button>" );
             })
- $('.btnNext').click(function (event) {
+$('.btnNext').click(nextButtonClicked)
+
+ function nextButtonClicked() {
     //Process next button click event
- 
+ alert('jii')
     if(i !== questions.length){
     var question = questions[i]
     $('.paragrapQestion').text(question)
@@ -43,22 +46,25 @@ $('.paragrapQestion').text(questions[0])
             answers[question].forEach(function(element, index) {
 
         $('.box').append( "<button class='button' id="+ index + ">" + element + "</button>" );
+        $('.button').click(answerButtonsClicked);
 
     })
     
 
-         $('.button').click(function (event) {
+         function answerButtonsClicked() {
+              alert("score")
+            $('.button').css("backgroundColor = 'red'")
     //Process answer button click event
  
     if(corectAnswers[question] === answers[question][this.id]){
         score++;
     }
         i++;
-    })
+    }
      }else{
          alert(score)
      }
-    })
+    }
 
 
 var timeInMinutes = 5;

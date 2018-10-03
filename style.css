@@ -87,7 +87,7 @@
 
 }
 
-#btnNext:after {
+.btnNext:after {
     content: "";
     background: #90EE90;
     display: block;
@@ -100,7 +100,7 @@
     transition: all 0.8s
 }
 
-#btnNext:active:after {
+.btnNext:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
