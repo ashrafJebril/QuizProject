@@ -1,16 +1,135 @@
+   .button1{
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #3B5998;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin: 10px 0px 15px 90px;
+}
+
+.button1:hover {background-color: #3e8e41}
+
+.button1:active {
+  background-color: #3B5998;
+  box-shadow: 0 5px #666;
+  transform: translateY(15px);
+}
+ 
+
+
+
+#btnNext {
+    position: relative;
+    background-color: #4CAF50;
+    border: none;
+    font-size: 12px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 100px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+
+    margin:auto;
+  display:block;
+
+  margin-top: 15px;
+
+
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.79);
+    border-radius: 15px;
+
+}
+
+#btnNext:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+#btnNext:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+
+ 
+
+
+
+
 
 body {
 	margin: 0;
-  display: flex;
-  justify-content: center;
-  background-color: #F46;
-}
-.wrapper {
-    text-align: center;
-    border-style: dashed;
+	 background-image: url("Its-Quiz-Time.jpg");
+	background-repeat: no-repeat;
+background-position: center center;
+background-attachment: fixed;
+background-size: cover;
+
+	 
+	  
+
 }
 
-#btn {
-    position: absolute;
-    top: 50%;
+
+.box{
+display: none;
+width: 80%; 
+margin: 0 auto;
+
+background-color:rgba(100,100,100,0.79);
+color: #fff;
+margin-top: 200px;
+   border: 1px solid;
+    padding: 10px;
+   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.79);
+
+
 }
+
+.lblTimer{
+
+margin-left: 33%;
+}
+
+.lblQuestion{
+float:left;
+margin-right: 33%x;
+
+
+}
+.lblRemaining{
+
+
+	margin-left: 33%;
+}
+.paragrapQestion{
+ margin-left: 20px;
+ font-size: 30px;
+ text-align: center;
+
+}
+#lbl0{
+color: red
+
+}
+
+ 
