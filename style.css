@@ -1,4 +1,41 @@
-   .button1{
+  @-webkit-keyframes bounce {
+        0% {
+    transform: scale(1,1) translate(0px, 0px);
+  }
+  
+  30%{
+    transform: scale(1,0.8) translate(0px, 10px); 
+  }
+
+  75%{
+    transform: scale(1,1.1) translate(0px, -25px); 
+  }
+  
+ 100% {
+    transform: scale(1,1) translate(0px, 0px);
+  }
+}
+
+.bounce {
+	 font-size: 30px;
+	 color: rgb(126,123,123);
+      text-align:center;
+      margin:0 auto;
+      margin-top:660px;
+      height:50px;
+      width:300px;
+      padding:20px;  
+      background:rgb(239,243,9);
+     -webkit-animation-name: bounce;
+     -webkit-animation-duration: 0.75s;
+    -webkit-animation-iteration-count: infinite;
+    cursor: pointer;
+     border-radius: 30px;
+}
+
+
+
+   .button{
   padding: 15px 25px;
   font-size: 24px;
   text-align: center;
@@ -10,11 +47,12 @@
   border-radius: 15px;
   box-shadow: 0 9px #999;
   margin: 10px 0px 15px 90px;
+
 }
 
-.button1:hover {background-color: #3e8e41}
+.button:hover {background-color: #3e8e41}
 
-.button1:active {
+.button:active {
   background-color: #3B5998;
   box-shadow: 0 5px #666;
   transform: translateY(15px);
@@ -23,7 +61,7 @@
 
 
 
-#btnNext {
+.btnNext {
     position: relative;
     background-color: #4CAF50;
     border: none;
@@ -91,10 +129,10 @@ background-size: cover;
 
 
 .box{
-display: none;
+
 width: 80%; 
 margin: 0 auto;
-
+display: none;
 background-color:rgba(100,100,100,0.79);
 color: #fff;
 margin-top: 200px;
