@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	
 
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
 
-<div class="box">
-	
-<label class="lblQuestion">Question 1</label>
-<label class="lblTimer">Timer</label>
-<label id="lbl0">0.00</label>
-<label class="lblRemaining">Remaining question</label>
-<label class="lbl0">0</label>
-<div class="question">
-<p class="paragrapQestion">what is the deffrence between java script and java?</p>
-</div>
- 
-	 
-	     <!-- <button class='btnNext'>Next</button> -->
-</div>
+    <div class="box">
+        <div style="width:100%;overflow: hidden;">
+            <div class="label-holder">
+                <label class="lblQuestion">Question <span id='question'></span></label>
+            </div>
 
-</div>
+            <div class="label-holder">
+                <label class="lblTimer">Timer</label>
+                <label id="lbl0">0.00</label>
+            </div>
 
-<div class="bounce">
-   Let's Start
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src = 'main.js'></script>
+            <div class="label-holder">
+                <label class="lblRemaining">Remaining question <span id='questionsRemaining'></span></label>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="question">
+            <p class="paragrapQestion">what is the deffrence between java script and java?</p>
+        </div>
+        <div class="answers"></div>
+    </div>
+    </div>
+    <div class="bounce">
+        Let's Start
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src='main.js'></script>
 
 </body>
+
 </html>
