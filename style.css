@@ -5,6 +5,7 @@ body {
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
+  font-family: "Comic Sans MS";
 }
 
 .box {
@@ -29,20 +30,22 @@ body {
   text-align: center;
   cursor: pointer;
   outline: none;
-  color: #fff;
-  background-color: #3b5998;
+  color: rgb(139,139,139);
+  background-color:rgb(237,251,87)  ;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
   margin: 20px;
+
 }
 
 .button:hover {
-  background-color: #3e8e41;
+  background-color:rgb(139,139,139);
+  color:rgb(237,251,87);
 }
 
 .button:active {
-  background-color: #3b5998;
+  
   box-shadow: 0 5px #666;
   transform: translateY(15px);
 }
@@ -97,7 +100,7 @@ body {
 
 .paragrapQestion {
   margin-left: 20px;
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
 }
 #lbl0 {

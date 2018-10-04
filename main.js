@@ -1,81 +1,85 @@
 $(document).ready(function() {
   var questions = [
-    "whom you will love the most in the immersive?",
-    "How many oscars did the Titanic movie got?",
-    "question3",
+    "Whom you will love the most in the immersive?",
+    "In which year did Nancy Ajram sang اخاصمك اه?",
+    "Whats Jozza mostly Known for?",
     "question4",
-    "question5"
+    "Who love's Ahmad????????"
   ];
   var answers = {
-    "whom you will love the most in the immersive?": [
+    "Whom you will love the most in the immersive?": [
       "Your pair",
       "Ahmad",
       "HIR's",
       "Sanaa"
     ],
-    "How many oscars did the Titanic movie got?": [
-      "Eight",
-      "Nine",
-      "Ten",
-      "Eleven"
+    "In which year did Nancy Ajram sang اخاصمك اه?": [
+      "2001",
+      "2009",
+      "2002",
+      "2003"
     ],
-    question3: [
-      "question3 answer1",
-      "question3 answer2",
-      "question3 answer3",
-      "question3 answer4"
-    ],
+    "Whats Jozza mostly Known for?": ["", "Nine", "Ten", "Eleven"],
     question4: [
       "question4 answer1",
       "question4 answer2",
       "question4 answer3",
       "question4 answer4"
     ],
-    question5: [
-      "question5 answer1",
-      "question5 answer2",
-      "question5 answer3",
-      "question5 answer4"
+    "Who love's Ahmad????????": [
+      "NO One",
+      "No One",
+      "Only his family",
+      "Everyone"
     ]
   };
   var corectAnswers = {
     "Who was the first president of the USA?": "George Washington",
-    "How many oscars did the Titanic movie got?": "Eleven",
+    "In which year did Nancy Ajram sang اخاصمك اه?": "2003",
     question3: "question3 answer1",
     question4: "question4 answer2",
-    question5: "question5 answer3"
+    "Who love's Ahmad????????": "Everyone"
   };
   var selectedAnswers = {};
   var score = 0;
   var i = 0;
+
   var isAnswerd = false;
+  var timeInMinutes = 5;
+  var currentTime = Date.parse(new Date());
+  var deadLine = new Date(currentTime + timeInMinutes * 60 * 1000);
+
+  //updating the question span counter
   $("#question").text(i + 1);
+  //updating the question span counter
   $("#questionsRemaining").text(questions.length - i - 1);
   var question = questions[i];
+
   $(".bounce").click(function() {
+    //remove the bounce button from body and show the div with class box
     $(".bounce").remove();
     $(".box").show();
-
+    //displaying the question and the answers using forEach loop
     $(".paragrapQestion").text(question);
     answers[question].forEach(function(element, index) {
       var btn =
         "<button class='button' id=" + index + ">" + element + "</button>";
       var id = "#" + index;
-
       $(".answers").append(btn);
       $(id).click(answerButtonsClicked);
     });
     $(".box").append("<button class='btnNext'>Next</button>");
+    //adding click event to buttons
     $(".btnNext").click(nextButtonClicked);
   });
   function nextButtonClicked() {
     //Process next button click event
-
+    //check only if the user answered the question before going for the next one
     if (isAnswerd) {
       isAnswerd = !isAnswerd;
       i++;
+      //if we reached the last question it will chage the text of the button to finsh
       if (i === questions.length - 1) {
-        console.log("Hi");
         $(".btnNext").text("Finish");
       }
       $("#question").text(i + 1);
@@ -84,6 +88,7 @@ $(document).ready(function() {
         question = questions[i];
         $(".paragrapQestion").text(question);
         $(".answers").html("");
+        //appending the answers buttons
         answers[question].forEach(function(element, index) {
           var btn =
             "<button class='button' id=" + index + ">" + element + "</button>";
@@ -92,15 +97,16 @@ $(document).ready(function() {
           $(id).click(answerButtonsClicked);
         });
       } else {
+        //when the user finished the quize remove the body elements and append a new div
         $("body").html("");
-        //TODO: style this in the
         var index = 0;
         var selectedIndex = 10;
         $("body").append('<div id="lastPage"></div>');
-        $("#lastPage").append("<div class='score'>Your Score is " + score+"</div>");
-
+        $("#lastPage").append(
+          "<div class='score'>Your Score is " + score + "</div>"
+        );
+        // appending all the questions with the correct answers and the selected answers
         for (var key in answers) {
-          console.log(answers[key]);
           $("#lastPage").append("<br>");
           $("#lastPage").append(key);
           $("#lastPage").append("<br>");
@@ -112,7 +118,6 @@ $(document).ready(function() {
               "</button>"
           );
           $("#" + index).css("background-color", "green");
-        //  $("#lastPage").append("<br>");
           if (corectAnswers[key] !== selectedAnswers[key]) {
             $("#lastPage").append(
               "<button class='lastButtonAswers' id=" +
@@ -134,19 +139,20 @@ $(document).ready(function() {
   }
 
   function answerButtonsClicked() {
+    //preventing more than one answer is selected
     if (!isAnswerd) {
+      //changing the button color
       selectedAnswers[question] = $(this).text();
-      $(this).css("background-color", "#3e8e41");
+      $(this).css("background-color", "rgb(139,139,139)");
+      $(this).css("color", "rgb(237,251,87)");
+      //increasing the score if the answer is correct
       if (corectAnswers[question] === answers[question][this.id]) {
         score++;
       }
       isAnswerd = !isAnswerd;
     }
   }
-  var timeInMinutes = 4;
-  var currentTime = Date.parse(new Date());
-  var deadLine = new Date(currentTime + timeInMinutes * 60 * 1000);
-
+  //setting the count down timer
   function timeRemaining(endtime) {
     var t = Date.parse(endtime) - Date.parse(new Date());
     var seconds = Math.floor((t / 1000) % 60);
@@ -176,3 +182,4 @@ $(document).ready(function() {
   }
   runClock("lbl0", deadLine);
 });
+
