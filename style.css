@@ -102,6 +102,7 @@ body {
 }
 #lbl0 {
   color: red;
+  font-size: 30px;
 }
 .answers {
   display: inline-block;
@@ -144,6 +145,30 @@ body {
     transform: scale(1, 1) translate(0px, 0px);
   }
 }
+.score{
+ color:rgb(239, 243, 9);
+
+
+}
+#lastPage{
+  text-align: center;
+  font-size: 30px;
+  
+  color: white;
+  
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+   width: 50%;
+
+ margin-right: 120px;
+  background-color: rgba(100, 100, 100, 0.79);
+  color: #fff;
+  margin-top: 200px;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.79);
+}
 
 .bounce {
   font-size: 30px;
@@ -159,5 +184,18 @@ body {
   -webkit-animation-duration: 0.75s;
   -webkit-animation-iteration-count: infinite;
   cursor: pointer;
+  border-radius: 50px;
+}
+
+.lastButtonAswers{
+
+  left: 50%;
+  width: 150px;
+  height: 50px;
+  color: white;
   border-radius: 30px;
+  margin:5px;
+
+
+
 }
