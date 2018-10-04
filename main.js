@@ -1,10 +1,10 @@
 $(document).ready(function() {
   var questions = [
-    "Whom you will love the most in the immersive?",
-    "In which year did Nancy Ajram sang اخاصمك اه?",
-    "Whats Jozza mostly Known for?",
-    "question4",
-    "Who love's Ahmad????????"
+  "Who is the first US president?",
+  "In which year did Nancy Ajram sang اخاصمك اه?",
+  "Whats Jozza mostly Known for?",
+  "Whom you will love the most in the immersive?",
+  "Who love's Ahmad????????"
   ];
   var answers = {
     "Whom you will love the most in the immersive?": [
@@ -19,25 +19,31 @@ $(document).ready(function() {
       "2002",
       "2003"
     ],
-    "Whats Jozza mostly Known for?": ["", "Nine", "Ten", "Eleven"],
-    question4: [
-      "question4 answer1",
-      "question4 answer2",
-      "question4 answer3",
-      "question4 answer4"
+    "Whats Jozza mostly Known for?": [
+    "loud voice", 
+    "bad in english",
+    "great lecturer",
+    "all"
+      ],
+   
+    "Who is the first US president?": [
+      "George Washington",
+      "Abraham Lincoln",
+      "John Tyler",
+      "John F. Kennedy"
     ],
     "Who love's Ahmad????????": [
       "NO One",
       "No One",
-      "Only his family",
+      "No One",
       "Everyone"
     ]
   };
   var corectAnswers = {
-    "Who was the first president of the USA?": "George Washington",
-    "In which year did Nancy Ajram sang اخاصمك اه?": "2003",
-    question3: "question3 answer1",
-    question4: "question4 answer2",
+    "Whom you will love the most in the immersive?":"Sanaa",
+    "In which year did Nancy Ajram sang اخاصمك اه?":"2003",
+    "Whats Jozza mostly Known for?": "all",
+    "Who is the first US president?": "George Washington",
     "Who love's Ahmad????????": "Everyone"
   };
   var selectedAnswers = {};
@@ -117,7 +123,7 @@ $(document).ready(function() {
               corectAnswers[key] +
               "</button>"
           );
-          $("#" + index).css("background-color", "green");
+          $("#" + index).css("background-color", "#4EB678");
           if (corectAnswers[key] !== selectedAnswers[key]) {
             $("#lastPage").append(
               "<button class='lastButtonAswers' id=" +
