@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var questions = [
   "Who is the first US president?",
-  "In which year did Nancy Ajram sang اخاصمك اه?",
+  "In which year did Nancy Ajram sang Akhasmak Ah?",
   "Whats Jozza mostly Known for?",
   "Whom you will love the most in the immersive?",
   "Who love's Ahmad????????"
@@ -13,7 +13,7 @@ $(document).ready(function() {
       "HIR's",
       "Sanaa"
     ],
-    "In which year did Nancy Ajram sang اخاصمك اه?": [
+    "In which year did Nancy Ajram sang Akhasmak Ah?": [
       "2001",
       "2009",
       "2002",
@@ -41,7 +41,7 @@ $(document).ready(function() {
   };
   var corectAnswers = {
     "Whom you will love the most in the immersive?":"Sanaa",
-    "In which year did Nancy Ajram sang اخاصمك اه?":"2003",
+    "In which year did Nancy Ajram sang Akhasmak Ah?":"2003",
     "Whats Jozza mostly Known for?": "all",
     "Who is the first US president?": "George Washington",
     "Who love's Ahmad????????": "Everyone"
